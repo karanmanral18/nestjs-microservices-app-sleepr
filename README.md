@@ -12,3 +12,10 @@ nest g mo database -p common
 #Generate Docker build for reservations service
 cd apps/reservations
 sudo docker build ../../ -f Dockerfile  -t sleepr_reservations
+
+#run you docker containers -> sudo docker-compose up
+#run single docker container image -> sudo docker-compose up auth
+
+#create a new microservice -> nest g app auth
+nest g mo users
+nest g co users

@@ -15,11 +15,14 @@ import { LoggerModule } from '@app/common';
     LoggerModule,
     ConfigModule.forRoot({
       isGlobal: true,
+      envFilePath: './apps/auth/.env',
       validationSchema: Joi.object({
         MONGODB_URI: Joi.string().required(),
         MONGODB_NAME: Joi.string().required(),
         JWT_SECRET: Joi.string().required(),
         JWT_EXPIRATION: Joi.string().required(),
+        HTTP_PORT: Joi.number().required(),
+        TCP_PORT: Joi.number().required(),
       }),
     }),
     JwtModule.registerAsync({

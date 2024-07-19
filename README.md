@@ -13,8 +13,11 @@ nest g mo database -p common
 cd apps/reservations
 sudo docker build ../../ -f Dockerfile  -t sleepr_reservations
 
-#run you docker containers -> sudo docker-compose up
+#run your all docker containers -> sudo docker-compose up
 #run single docker container image -> sudo docker-compose up auth
+
+#run your nest project without docker : pnpm start:dev ( This will only run default app : reservations)
+#run your particlar nest project without docker : pnpm start:dev auth
 
 #create a new microservice -> nest g app auth
 nest g mo users

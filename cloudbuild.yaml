@@ -12,7 +12,10 @@ steps:
       ]
   - name: 'gcr.io/cloud-builders/docker'
     args:
-      ['push', 'asia-south1-docker.pkg.dev/neural-cortex-424806-r2/reservations/production']
+      [
+        'push',
+        'asia-south1-docker.pkg.dev/neural-cortex-424806-r2/reservations/production',
+      ]
 
   # Auth
   - name: 'gcr.io/cloud-builders/docker'
@@ -26,7 +29,11 @@ steps:
         '.',
       ]
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'asia-south1-docker.pkg.dev/neural-cortex-424806-r2/auth/production']
+    args:
+      [
+        'push',
+        'asia-south1-docker.pkg.dev/neural-cortex-424806-r2/auth/production',
+      ]
 
   # Notifications
   - name: 'gcr.io/cloud-builders/docker'
@@ -41,7 +48,10 @@ steps:
       ]
   - name: 'gcr.io/cloud-builders/docker'
     args:
-      ['push', 'asia-south1-docker.pkg.dev/neural-cortex-424806-r2/notifications/production']
+      [
+        'push',
+        'asia-south1-docker.pkg.dev/neural-cortex-424806-r2/notifications/production',
+      ]
 
   # Payments
   - name: 'gcr.io/cloud-builders/docker'
@@ -55,4 +65,11 @@ steps:
         '.',
       ]
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'asia-south1-docker.pkg.dev/neural-cortex-424806-r2/payments/production']
+    args:
+      [
+        'push',
+        'asia-south1-docker.pkg.dev/neural-cortex-424806-r2/payments/production',
+      ]
+
+options:
+  logging: CLOUD_LOGGING_ONLY

@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: reservations
+  name: reservations
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reservations
+  template:
+    metadata:
+      labels:
+        app: reservations
+    spec:
+      containers:
+      - image: asia-south1-docker.pkg.dev/neural-cortex-424806-r2/reservations/production
+        name: reservations
+        env:
+          - name: MONGODB_URI
+            valueFrom:
+              secretKeyRef:
+                name: mongodb
+                key: connectionString
+          - name: MONGODB_NAME
+            valueFrom:
+              secretKeyRef:
+                name: mongodb
+                key: databaseName
+          - name: PORT
+            value: '4000'
+          - name: AUTH_HOST
+            value: auth
+          - name: AUTH_PORT
+            value: '4002'
+          - name: PAYMENTS_HOST
+            value: payments
+          - name: PAYMENTS_PORT
+            value: '4003'
+        ports:
+          - containerPort: 4000

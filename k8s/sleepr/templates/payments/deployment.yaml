@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: payments
+  name: payments
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: payments
+  template:
+    metadata:
+      labels:
+        app: payments
+    spec:
+      containers:
+      - image: asia-south1-docker.pkg.dev/neural-cortex-424806-r2/payments/production
+        name: payments
+        env:
+          - name: PORT
+            value: '4003'
+          - name: NOTIFICATIONS_HOST
+            value: notifications
+          - name: NOTIFICATIONS_PORT
+            value: '4004'
+          - name: STRIPE_SECRET_KEY
+            valueFrom:
+              secretKeyRef:
+                name: stripe
+                key: apiKey
+        ports:
+          - containerPort: 4003

@@ -31,7 +31,7 @@ spec:
           - name: PORT
             value: '4000'
           - name: AUTH_HOST
-            value: auth
+            value: auth-tcp
           - name: AUTH_PORT
             value: '4002'
           - name: PAYMENTS_HOST

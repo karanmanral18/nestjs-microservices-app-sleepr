@@ -6,7 +6,7 @@ metadata:
   name: reservations
 spec:
   ports:
-  - name: "4000"
+  - name: 'http'
     port: 4000
     protocol: TCP
     targetPort: 4000

@@ -6,7 +6,7 @@ metadata:
   name: payments
 spec:
   ports:
-  - name: "4003"
+  - name: "tcp"
     port: 4003
     protocol: TCP
     targetPort: 4003

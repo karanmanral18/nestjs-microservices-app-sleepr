@@ -6,11 +6,11 @@ metadata:
   name: auth
 spec:
   ports:
-  - name: "4001"
+  - name: "tcp"
     port: 4001
     protocol: TCP
     targetPort: 4001
-  - name: "4002"
+  - name: "http"
     port: 4002
     protocol: TCP
     targetPort: 4002
